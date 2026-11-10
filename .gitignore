@@ -1,0 +1,30 @@
+
+# Dependências
+/node_modules
+
+# Build
+/dist
+/out-tsc
+/tmp
+/.angular/cache
+
+# Arquivos de ambiente
+.env
+.env.*
+!.env.example
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# IDEs e editores
+/.idea
+/.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/launch.json
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
