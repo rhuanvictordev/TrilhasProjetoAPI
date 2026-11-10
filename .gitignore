@@ -1,30 +1,33 @@
+HELP.md
+target/
+.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
 
-# Dependências
-/node_modules
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
 
-# Build
-/dist
-/out-tsc
-/tmp
-/.angular/cache
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
 
-# Arquivos de ambiente
-.env
-.env.*
-!.env.example
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
 
-# Logs
-npm-debug.log*
-yarn-debug.log*
-pnpm-debug.log*
-
-# IDEs e editores
-/.idea
-/.vscode/*
-!.vscode/extensions.json
-!.vscode/settings.json
-!.vscode/launch.json
-
-# Sistema operacional
-.DS_Store
-Thumbs.db
+### VS Code ###
+.vscode/
