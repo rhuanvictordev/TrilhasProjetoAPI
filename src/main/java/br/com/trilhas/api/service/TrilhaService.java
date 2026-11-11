@@ -26,24 +26,15 @@ public class TrilhaService {
 
     public TrilhaRespostaDTO cadastrar(TrilhaDTO dto) {
     	
+    	if (dto.getDistanciaMetros() > 100000) {
+    		throw new RuntimeException("Distância inválida, a trilha não pode possuir uma distancia maior que 100.000 metros!");
+    	}
+    	
     	Trilha trilha = new Trilha();
-    	
-    	
-    	
     	trilha.setNome(dto.getNome());
     	trilha.setDescricao(dto.getDescricao());
     	trilha.setDistanciaMetros(dto.getDistanciaMetros());
-    	
-    	
-    	
-    	
-    	
     	Trilha trilhaSalva = trilhaRepository.save(trilha);
-    	
-    	
-    	
-    	
-    	
     	
     	return new TrilhaRespostaDTO(
     			
@@ -51,14 +42,13 @@ public class TrilhaService {
     			trilhaSalva.getNome(), 
     			trilhaSalva.getDescricao(), 
     			trilhaSalva.getDistanciaMetros()
-    			);
+		);
     }
     
-    
-    
-    
-    
-    
+    public Trilha buscar(Long id)
+    {
+    	return trilhaRepository.findById(id).orElseThrow(() -> new RuntimeException("Trilha nao encontrada"));
+    }
     
     
     public List<Trilha> listar()
@@ -67,35 +57,22 @@ public class TrilhaService {
     }
     
     
-    
-    
-    
-    
-    
-    
-    
     public Trilha editar(Long id, TrilhaDTO dto) {
-
         Trilha trilha = trilhaRepository.findById(id).orElseThrow(() -> new RuntimeException("Trilha não encontrada"));
-
         trilha.setNome(dto.getNome());
         trilha.setDescricao(dto.getDescricao());
         trilha.setDistanciaMetros(dto.getDistanciaMetros());
-
         return trilhaRepository.save(trilha);
     }
     
     
-    
-    
     public boolean deletar(long id)
     {
-    	Trilha favorita = new Trilha();
-    	favorita.setId(id);
-    	trilhaRepository.delete(favorita);
+    	Trilha trilha = new Trilha();
+    	trilha.setId(id);
+    	trilhaRepository.delete(trilha);
     	return true;
     }
-    
     
     
 }

@@ -14,8 +14,8 @@ import br.com.trilhas.api.security.JwtUtil;
 @RequestMapping("/api/auth")
 public class AuthController {
 	
-	private final UsuarioRepository usuarioRepository;
-	private final JwtUtil jwtUtil;
+	private UsuarioRepository usuarioRepository;
+	private JwtUtil jwtUtil;
 	
 	public AuthController(UsuarioRepository usuarioRepository, JwtUtil jwtUtil) {
 	    this.usuarioRepository = usuarioRepository;

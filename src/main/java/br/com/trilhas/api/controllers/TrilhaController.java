@@ -34,23 +34,16 @@ import br.com.trilhas.api.service.UsuarioService;
 @RequestMapping("/api/trilhas")
 public class TrilhaController {
 	
-	private final TrilhaService trilhaService;
+	private TrilhaService trilhaService;
 
     public TrilhaController(TrilhaService trilhaService) {
         this.trilhaService = trilhaService;
     }
     
-    
-    
-    
-    
-    @PostMapping
-    public TrilhaRespostaDTO cadastrar(@RequestBody TrilhaDTO dto) {
-        return trilhaService.cadastrar(dto);
+    @GetMapping("/{id}")
+    public Trilha buscar(@PathVariable Long id){
+    	return trilhaService.buscar(id);
     }
-    
-    
-    
     
     @GetMapping
     public List<Trilha> listar(){
@@ -58,14 +51,16 @@ public class TrilhaController {
     	return trilhaService.listar();
     }
     
+    @PostMapping
+    public TrilhaRespostaDTO cadastrar(@RequestBody TrilhaDTO dto) {
+        return trilhaService.cadastrar(dto);
+    }
     
     
     @PutMapping("/{id}")
     public Trilha editar(@PathVariable Long id, @RequestBody TrilhaDTO dto) {
         return trilhaService.editar(id, dto);
     }
-    
-    
     
     
     @DeleteMapping("/{id}")
