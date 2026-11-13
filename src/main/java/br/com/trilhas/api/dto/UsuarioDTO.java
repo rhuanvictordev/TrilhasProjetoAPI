@@ -5,8 +5,18 @@ public class UsuarioDTO {
     private String nome;
     private String email;
     private String senha;
+    private String papel;
+    
+    
+    public String getPapel() {
+		return papel;
+	}
 
-    public String getNome() {
+	public void setPapel(String papel) {
+		this.papel = papel;
+	}
+
+	public String getNome() {
         return nome;
     }
 

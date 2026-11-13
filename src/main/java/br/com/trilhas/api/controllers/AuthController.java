@@ -3,6 +3,7 @@ package br.com.trilhas.api.controllers;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.trilhas.api.dto.LoginDTO;
@@ -23,10 +24,9 @@ public class AuthController {
 	}
 	
 	@PostMapping("/login")
-	public String login(@RequestBody LoginDTO dto) {
+		public String login(@RequestBody LoginDTO dto) {
 
 	    Usuario usuario = usuarioRepository.findByEmail(dto.getEmail()).orElse(null);
-
 	    if (usuario == null || !usuario.getSenha().equals(dto.getSenha())) {
 	        throw new RuntimeException("Email ou senha inválidos");
 	    }

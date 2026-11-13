@@ -4,10 +4,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import br.com.trilhas.api.dto.TrilhaDTO;
 import br.com.trilhas.api.dto.UsuarioDTO;
 import br.com.trilhas.api.dto.UsuarioRespostaDTO;
-import br.com.trilhas.api.entity.Trilha;
 import br.com.trilhas.api.entity.Usuario;
 import br.com.trilhas.api.repository.UsuarioRepository;
 
@@ -21,11 +19,14 @@ public class UsuarioService {
     }
 
     public UsuarioRespostaDTO cadastrar(UsuarioDTO dto) {
-        Usuario usuario = new Usuario();
+    	Usuario usuario = new Usuario();
         usuario.setNome(dto.getNome());
         usuario.setEmail(dto.getEmail());
         usuario.setSenha(dto.getSenha());
+        usuario.setPapel("user");
+        
         Usuario salvo = usuarioRepository.save(usuario);
+        
         return new UsuarioRespostaDTO(
             salvo.getId(),
             salvo.getNome(),
@@ -50,6 +51,7 @@ public class UsuarioService {
         usuario.setNome(dto.getNome());
         usuario.setEmail(dto.getEmail());
         usuario.setSenha(dto.getSenha());
+        usuario.setPapel(dto.getPapel());
         return usuarioRepository.save(usuario);
     }
     
