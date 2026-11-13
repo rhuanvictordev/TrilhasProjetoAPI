@@ -7,6 +7,12 @@ public class UsuarioDTO {
     private String senha;
     private String papel;
     
+    public UsuarioDTO(String nome, String email, String senha, String papel) {
+    	this.nome = nome;
+    	this.email = email;
+    	this.senha = senha;
+    	this.papel = papel;
+    }
     
     public String getPapel() {
 		return papel;

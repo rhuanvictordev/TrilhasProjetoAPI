@@ -28,10 +28,12 @@ import br.com.trilhas.api.entity.Usuario;
 import br.com.trilhas.api.repository.TrilhaRepository;
 import br.com.trilhas.api.service.TrilhaService;
 import br.com.trilhas.api.service.UsuarioService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 
 
 @RestController
 @RequestMapping("/api/trilhas")
+@SecurityRequirement(name = "Bearer Authentication")
 public class TrilhaController {
 	
 	private TrilhaService trilhaService;

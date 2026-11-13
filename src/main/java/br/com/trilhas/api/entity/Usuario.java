@@ -26,8 +26,8 @@ public class Usuario {
     
     @Column(nullable = false)
     private String papel;
-    
 
+    
     public String getPapel() {
 		return papel;
 	}

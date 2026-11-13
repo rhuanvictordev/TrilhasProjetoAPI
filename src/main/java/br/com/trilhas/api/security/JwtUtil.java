@@ -12,8 +12,7 @@ import io.jsonwebtoken.security.Keys;
 @Component
 public class JwtUtil {
 
-    private final String secreta = "chavechavechavechavechavechavesecretachavedaapisecretachavechavechavechave";
-    
+    private final String secreta = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
 	private final SecretKey chave = Keys.hmacShaKeyFor(secreta.getBytes());
 
     public String gerarToken(String email) {

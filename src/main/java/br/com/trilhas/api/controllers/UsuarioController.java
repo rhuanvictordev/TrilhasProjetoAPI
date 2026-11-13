@@ -10,9 +10,11 @@ import br.com.trilhas.api.dto.UsuarioRespostaDTO;
 import br.com.trilhas.api.entity.Trilha;
 import br.com.trilhas.api.entity.Usuario;
 import br.com.trilhas.api.service.UsuarioService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 
 @RestController
 @RequestMapping("/api/usuarios")
+@SecurityRequirement(name = "Bearer Authentication")
 public class UsuarioController {
 
     private UsuarioService usuarioService;
@@ -31,10 +33,12 @@ public class UsuarioController {
     	return usuarioService.listar();
     }
     
+    /*
     @PostMapping
     public UsuarioRespostaDTO cadastrar(@RequestBody UsuarioDTO dto) {
         return usuarioService.cadastrar(dto);
     }
+    */
     
     @PutMapping("/{id}")
     public Usuario editar(@PathVariable Long id, @RequestBody UsuarioDTO dto) {
